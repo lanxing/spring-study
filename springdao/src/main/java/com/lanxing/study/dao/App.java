@@ -1,4 +1,4 @@
-package com.lanxing.study;
+package com.lanxing.study.dao;
 
 /**
  * Hello world!
