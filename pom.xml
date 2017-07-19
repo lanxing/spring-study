@@ -15,10 +15,31 @@
 
     <properties>
         <spring-version>4.3.9.RELEASE</spring-version>
+        <brother-version>1.0-SNAPSHOT</brother-version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <!--兄弟依赖-->
+            <dependency>
+                <groupId>com.lanxing.study</groupId>
+                <artifactId>spring-service</artifactId>
+                <version>${brother-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lanxing.study</groupId>
+                <artifactId>spring-dao</artifactId>
+                <version>${brother-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lanxing.study</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${brother-version}</version>
+            </dependency>
+
             <!--spring start-->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -86,6 +107,12 @@
                 <version>1.2.34</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.8</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -100,13 +127,31 @@
     </dependencies>
     <build>
         <finalName>spring-study</finalName>
-
         <plugins>
+
+            <!--启动插件-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.6.v20170531</version>
             </plugin>
+
+            <!-- jar包插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+            <!-- war包插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <outputDirectory>target</outputDirectory>
+                </configuration>
+            </plugin>
+
         </plugins>
 
     </build>

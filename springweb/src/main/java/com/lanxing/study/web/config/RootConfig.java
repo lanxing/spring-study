@@ -1,8 +1,11 @@
 package com.lanxing.study.web.config;
 
+import com.lanxing.study.service.config.JavaConfig;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -12,6 +15,8 @@ import org.springframework.core.io.ClassPathResource;
  * @desc 功能描述
  */
 @Configuration
+@ComponentScan(basePackages = "com.lanxing.study.service")
+@Import({JavaConfig.class})
 public class RootConfig {
 
     @Bean

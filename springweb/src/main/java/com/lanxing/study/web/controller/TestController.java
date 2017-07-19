@@ -1,9 +1,12 @@
 package com.lanxing.study.web.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.lanxing.study.service.test.TestBeanClass;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author gaofan
@@ -15,13 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
+    @Resource
+    private TestBeanClass testBeanClass;
+
     @Value("#{WebConfiguration['testUrlf]}")
     private String testUrl;
 
     @RequestMapping("/testurl")
     public JSONObject test(){
         JSONObject object = new JSONObject();
-        object.put("url", testUrl);
+        object.put("url", testBeanClass.getUrl());
         return object;
     }
 
