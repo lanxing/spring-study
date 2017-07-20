@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @desc 功能描述
  */
 @RestController
-@RequestMapping("/test")
+@RequestMapping("test")
 public class TestController {
 
     @Resource
@@ -24,7 +24,7 @@ public class TestController {
     @Value("#{WebConfiguration['testUrlf]}")
     private String testUrl;
 
-    @RequestMapping("/testurl")
+    @RequestMapping("testurl")
     public JSONObject test(){
         JSONObject object = new JSONObject();
         object.put("url", testBeanClass.getUrl());
